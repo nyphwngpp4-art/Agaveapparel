@@ -1,28 +1,82 @@
 [
  {
-  "name": "Fade",
-  "slug": "agave-apparel-fade-orange-to-yello",
+  "name": "Golden Hour",
+  "slug": "golden-hour",
   "price": 36,
-  "meta_description": "A slow fade from yellow to orange to red \u2014 every Sonoran sunset you've ever watched.",
-  "tagline": null,
+  "meta_description": "A love letter to that last hour of Arizona sun — the kind that turns the whole desert gold. Printed on a soft, breathable cotton tee.",
+  "tagline": "Sonoran light, stretched and held.",
   "img_alt": null,
-  "image": "/designs/agave-apparel-fade-orange-to-yello.png"
+  "image": "/designs/golden-hour.png"
  },
  {
   "name": "Agave Desert Life",
   "slug": "agave-desert-life",
   "price": 34,
-  "meta_description": "The agave doesn't ask for much \u2014 and still gives everything. A quiet tribute to desert living.",
-  "tagline": null,
+  "meta_description": "The agave doesn't ask for much — and still gives everything. A quiet tribute to desert living.",
+  "tagline": "Rooted, patient, thriving.",
   "img_alt": null,
   "image": "/designs/agave-desert-life.png"
+ },
+ {
+  "name": "Stay Salty — Salt River",
+  "slug": "stay-salty-salt-river",
+  "price": 34,
+  "meta_description": "For anyone who's floated the Salt on a 110-degree afternoon and decided that's just about the best day on earth.",
+  "tagline": "A day on the river. A lifetime in the memory.",
+  "img_alt": null,
+  "image": "/designs/stay-salty-salt-river.png"
+ },
+ {
+  "name": "Out West",
+  "slug": "out-west",
+  "price": 32,
+  "meta_description": "For the ones who point the truck toward the sun and keep driving.",
+  "tagline": "Some people head east. We went the other way.",
+  "img_alt": null,
+  "image": "/designs/out-west.png"
+ },
+ {
+  "name": "From the Desert to the Glass",
+  "slug": "from-the-desert-to-the-glass",
+  "price": 34,
+  "meta_description": "A nod to the plant that starts in the soil and ends in your favorite margarita.",
+  "tagline": "Agave. Patience. Pour.",
+  "img_alt": null,
+  "image": "/designs/from-the-desert-to-the-glass.png"
+ },
+ {
+  "name": "Soul to Sole",
+  "slug": "soul-to-sole",
+  "price": 36,
+  "meta_description": "A reminder that the best souvenirs aren't things — they're the dust on your boots and what it taught you.",
+  "tagline": "What the desert gives, you carry.",
+  "img_alt": null,
+  "image": "/designs/soul-to-sole.png"
+ },
+ {
+  "name": "Agave to Tequila",
+  "slug": "agave-to-tequila",
+  "price": 32,
+  "meta_description": "For lovers of the long way around.",
+  "tagline": "Eight years in the ground. One night worth remembering.",
+  "img_alt": null,
+  "image": "/designs/agave-to-tequila.png"
+ },
+ {
+  "name": "Desert Life",
+  "slug": "desert-life",
+  "price": 30,
+  "meta_description": "A classic. Nothing more, nothing less.",
+  "tagline": "Simple. Sun-soaked. Ours.",
+  "img_alt": null,
+  "image": "/designs/desert-life.png"
  },
  {
   "name": "Agave Love",
   "slug": "agave-love",
   "price": 32,
   "meta_description": "Worn by desert people, for desert people.",
-  "tagline": null,
+  "tagline": "For the ones who love it loud.",
   "img_alt": null,
   "image": "/designs/agave-love.png"
  },
@@ -31,52 +85,61 @@
   "slug": "agave-over-hills",
   "price": 34,
   "meta_description": "The rolling Sonoran foothills, distilled into a single graphic.",
-  "tagline": null,
+  "tagline": "A view you never get tired of.",
   "img_alt": null,
   "image": "/designs/agave-over-hills.png"
  },
  {
-  "name": "Agave to Tequila",
-  "slug": "agave-to-tequila",
-  "price": 32,
-  "meta_description": "For lovers of the long way around.",
-  "tagline": null,
+  "name": "Rays for Days",
+  "slug": "rays-for-days",
+  "price": 30,
+  "meta_description": "A love letter to Arizona sunshine.",
+  "tagline": "300+ days a year — and counting.",
   "img_alt": null,
-  "image": "/designs/agave-to-tequila.png"
+  "image": "/designs/rays-for-days.png"
  },
  {
-  "name": "Arizona, Home",
-  "slug": "arizona-state-image",
-  "price": 28,
-  "meta_description": "The outline of a place that makes you homesick even when you're in it.",
-  "tagline": null,
+  "name": "Orange Rays for Days",
+  "slug": "orange-rays-for-days",
+  "price": 30,
+  "meta_description": "Same Arizona sun, a little more fire.",
+  "tagline": "Orange variation of the fan favorite.",
   "img_alt": null,
-  "image": "/designs/arizona-state-image.png"
+  "image": "/designs/orange-rays-for-days.png"
  },
  {
-  "name": "Bandana Triangle",
-  "slug": "bandana-triangle",
-  "price": 32,
-  "meta_description": "Western bandana geometry in a wearable graphic.",
-  "tagline": null,
+  "name": "Red Rays for Days",
+  "slug": "red-rays-for-days",
+  "price": 30,
+  "meta_description": "For when you want the sun a little louder.",
+  "tagline": "Red variation of the fan favorite.",
   "img_alt": null,
-  "image": "/designs/bandana-triangle.png"
+  "image": "/designs/red-rays-for-days.png"
  },
  {
   "name": "Black Rays for Days",
   "slug": "black-rays-for-days",
   "price": 30,
   "meta_description": "A quieter way to say you love the sun.",
-  "tagline": null,
+  "tagline": "Monochrome take on the classic.",
   "img_alt": null,
   "image": "/designs/black-rays-for-days.png"
+ },
+ {
+  "name": "Fade",
+  "slug": "agave-apparel-fade-orange-to-yello",
+  "price": 36,
+  "meta_description": "A slow fade from yellow to orange to red — every Sonoran sunset you've ever watched.",
+  "tagline": "Sunset in gradient form.",
+  "img_alt": null,
+  "image": "/designs/agave-apparel-fade-orange-to-yello.png"
  },
  {
   "name": "Bull Head",
   "slug": "bull-head",
   "price": 34,
-  "meta_description": "A nod to the bone-in-the-desert motif \u2014 and the kind of person who's at home in it.",
-  "tagline": null,
+  "meta_description": "A nod to the bone-in-the-desert motif — and the kind of person who's at home in it.",
+  "tagline": "Stubborn. Western. Unapologetic.",
   "img_alt": null,
   "image": "/designs/bull-head.png"
  },
@@ -84,117 +147,54 @@
   "name": "Cactus in Sun",
   "slug": "cactus-in-sun-brown",
   "price": 32,
-  "meta_description": "Warm earth tones. A cactus. A sun. That's it \u2014 and that's everything.",
-  "tagline": null,
+  "meta_description": "Warm earth tones. A cactus. A sun. That's it — and that's everything.",
+  "tagline": "The view from behind the saguaro.",
   "img_alt": null,
   "image": "/designs/cactus-in-sun-brown.png"
- },
- {
-  "name": "Desert Life",
-  "slug": "desert-life",
-  "price": 30,
-  "meta_description": "A classic. Nothing more, nothing less.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/desert-life.png"
- },
- {
-  "name": "From the Desert to the Glass",
-  "slug": "from-the-desert-to-the-glass",
-  "price": 34,
-  "meta_description": "A nod to the plant that starts in the soil and ends in your favorite margarita.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/from-the-desert-to-the-glass.png"
- },
- {
-  "name": "Golden Hour",
-  "slug": "golden-hour",
-  "price": 36,
-  "meta_description": "A love letter to that last hour of Arizona sun \u2014 the kind that turns the whole desert gold. Printed on a soft, breathable cotton tee.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/golden-hour.png"
  },
  {
   "name": "Leave a Mark",
   "slug": "leave-a-mark",
   "price": 34,
   "meta_description": "A reminder to take the scenic route, the hard path, the long way home.",
-  "tagline": null,
+  "tagline": "Move through it on purpose.",
   "img_alt": null,
   "image": "/designs/leave-a-mark.png"
  },
  {
-  "name": "Orange Rays for Days",
-  "slug": "orange-rays-for-days",
-  "price": 30,
-  "meta_description": "Same Arizona sun, a little more fire.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/orange-rays-for-days.png"
- },
- {
-  "name": "Out West",
-  "slug": "out-west",
+  "name": "Bandana Triangle",
+  "slug": "bandana-triangle",
   "price": 32,
-  "meta_description": "For the ones who point the truck toward the sun and keep driving.",
-  "tagline": null,
+  "meta_description": "Western bandana geometry in a wearable graphic.",
+  "tagline": "Pattern play, desert-style.",
   "img_alt": null,
-  "image": "/designs/out-west.png"
- },
- {
-  "name": "Patterned Agave",
-  "slug": "patterened-agave",
-  "price": 32,
-  "meta_description": "Small-scale agave pattern, built for everyday wear.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/patterened-agave.png"
- },
- {
-  "name": "Rays for Days",
-  "slug": "rays-for-days",
-  "price": 30,
-  "meta_description": "A love letter to Arizona sunshine.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/rays-for-days.png"
- },
- {
-  "name": "Red Rays for Days",
-  "slug": "red-rays-for-days",
-  "price": 30,
-  "meta_description": "For when you want the sun a little louder.",
-  "tagline": null,
-  "img_alt": null,
-  "image": "/designs/red-rays-for-days.png"
+  "image": "/designs/bandana-triangle.png"
  },
  {
   "name": "Rounded Window Agave",
   "slug": "rounded-window-agave",
   "price": 34,
   "meta_description": "As if you're looking at the agave through an adobe window at golden hour.",
-  "tagline": null,
+  "tagline": "A view framed.",
   "img_alt": null,
   "image": "/designs/rounded-window-agave.png"
  },
  {
-  "name": "Soul to Sole",
-  "slug": "soul-to-sole",
-  "price": 36,
-  "meta_description": "A reminder that the best souvenirs aren't things \u2014 they're the dust on your boots and what it taught you.",
-  "tagline": null,
+  "name": "Patterned Agave",
+  "slug": "patterened-agave",
+  "price": 32,
+  "meta_description": "Small-scale agave pattern, built for everyday wear.",
+  "tagline": "The plant. The pattern. The state of mind.",
   "img_alt": null,
-  "image": "/designs/soul-to-sole.png"
+  "image": "/designs/patterened-agave.png"
  },
  {
-  "name": "Stay Salty \u2014 Salt River",
-  "slug": "stay-salty-salt-river",
-  "price": 34,
-  "meta_description": "For anyone who's floated the Salt on a 110-degree afternoon and decided that's just about the best day on earth.",
-  "tagline": null,
+  "name": "Arizona, Home",
+  "slug": "arizona-state-image",
+  "price": 28,
+  "meta_description": "The outline of a place that makes you homesick even when you're in it.",
+  "tagline": "48th state. First love.",
   "img_alt": null,
-  "image": "/designs/stay-salty-salt-river.png"
+  "image": "/designs/arizona-state-image.png"
  }
 ]

@@ -1,0 +1,5 @@
+# Preview copy: keep out of search engines.
+User-agent: *
+Disallow: /
+
+Sitemap: https://agave-apparel-preview.pages.dev/sitemap.xml
