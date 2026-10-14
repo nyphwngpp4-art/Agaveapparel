@@ -1,25 +1,12 @@
-// Home only: hero parallax (T2) and dust-scratch reveal (T7).
+// Home only: hero video start and dust-scratch reveal (T7).
 (function () {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // T2: three depth plates. Sky still, type slow, saguaro fast. Scrubbed, no pinning.
-  if (!reduce && window.gsap && window.ScrollTrigger) {
-    gsap.registerPlugin(ScrollTrigger);
-    const st = { trigger: ".hero", start: "top top", end: "bottom top", scrub: true };
-    gsap.to(".p-far", { yPercent: 6, ease: "none", scrollTrigger: st });
-    gsap.to(".p-type", { yPercent: -10, ease: "none", scrollTrigger: st });
-    gsap.to(".p-near", { yPercent: -22, ease: "none", scrollTrigger: st });
-    gsap.to(".w2", { yPercent: -40, ease: "none", scrollTrigger: st });
-    // small pointer tilt on fine pointers only
-    if (matchMedia("(pointer: fine)").matches) {
-      const hero = document.querySelector(".hero");
-      const far = gsap.quickTo(".p-far", "x", { duration: 1.2, ease: "power3" });
-      const near = gsap.quickTo(".p-near", "x", { duration: 1.2, ease: "power3" });
-      hero.addEventListener("pointermove", (e) => {
-        const dx = e.clientX / innerWidth - 0.5;
-        far(dx * -10); near(dx * 22);
-      });
-    }
+  // Hero video: start only when motion is welcome. Poster stays for reduced motion / Save-Data / no JS.
+  const v = document.querySelector("[data-hero-video]");
+  if (v && !reduce && !(navigator.connection && navigator.connection.saveData)) {
+    v.preload = "auto";
+    v.play().catch(() => {});
   }
 
   // T7: scrape the sun-bleached dust off the featured print. The real <img> underneath carries the alt text.

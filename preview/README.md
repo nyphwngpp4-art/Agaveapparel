@@ -25,3 +25,8 @@ The live site and its DNS are untouched.
 - Product page colours are picked by eye from each print (`WORLD` in build.py) and darkened automatically until cream text passes 4.8:1.
 - Site images carry a baked 120px margin; build.py crops it for display. OG/JSON-LD still use the full 1200px JPG.
 - QA: `qa/qa2.py` (cart flow, crawl, alt, console, CLS/LCP), `qa/final.py` (screenshots into qa/v2).
+
+## v3 (Oct 14): logo-derived palette, masthead, hero video hook
+- Palette from the logo only: bone #E6E2DB, oxblood ink #250909, agave #7A8985 (accent), mist #CDD1CB (support). Product pages tint bone 4–20% toward agave.
+- Logo traced to SVG with vtracer (`src/logo.svg`, `logo-light.svg`, `logo-leaf.svg`); centered masthead with split nav.
+- Hero video: drop hero.mp4 / hero.webm / hero-mobile.mp4 / hero-poster.jpg into `../hero-video/` and run `python3 build.py`; it emits `<video muted loop playsinline preload="none" poster>` with a mobile `<source media>`. home.js plays it unless prefers-reduced-motion or Save-Data. Without the files, a palette-only fallback renders.

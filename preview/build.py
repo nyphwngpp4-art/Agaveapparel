@@ -18,35 +18,21 @@ E = html.escape
 def hexc(rgb): return "#%02x%02x%02x" % tuple(int(round(c)) for c in rgb)
 
 
-# Page colour for each design, eyedropped by hand from the print's own palette (see worlds.json for the
-# result). The prints are mostly earthy, so pure auto-sampling made 22 near-identical tans; picking by eye
-# keeps each page in its print's world while giving them distinct moods.
-WORLD = {
- "golden-hour": "#3f5e52", "agave-desert-life": "#8e4a17", "stay-salty-salt-river": "#8a4a2c", "out-west": "#5a4b3e",
- "from-the-desert-to-the-glass": "#4c5a45", "soul-to-sole": "#4a3826", "agave-to-tequila": "#7a5a3e", "desert-life": "#6b3f28",
- "agave-love": "#5e6650", "agave-over-hills": "#6b3f22", "rays-for-days": "#8a5528", "orange-rays-for-days": "#a63e28",
- "red-rays-for-days": "#a8352c", "black-rays-for-days": "#201b1a", "agave-apparel-fade-orange-to-yello": "#5a5530",
- "bull-head": "#4e3620", "cactus-in-sun-brown": "#9a5a2e", "leave-a-mark": "#4f3020", "bandana-triangle": "#a24c1b",
- "rounded-window-agave": "#5f6656", "patterened-agave": "#8e5038", "arizona-state-image": "#3e5a55",
-}
+# Palette (from the logo): bone paper, oxblood ink, agave leaf, mist support.
+BONE, INK, AGAVE, MIST = "#E6E2DB", "#250909", "#7A8985", "#CDD1CB"
 
 
-def _lum(hx):
-    c = [int(hx[i:i + 2], 16) / 255 for i in (1, 3, 5)]
-    c = [x / 12.92 if x <= 0.03928 else ((x + 0.055) / 1.055) ** 2.4 for x in c]
-    return 0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]
-
-
-def contrast(a, b):
-    la, lb = sorted([_lum(a), _lum(b)], reverse=True)
-    return (la + 0.05) / (lb + 0.05)
+def mix(a, b, t):
+    return hexc([int(a[i:i + 2], 16) * (1 - t) + int(b[i:i + 2], 16) * t for i in (1, 3, 5)])
 
 
 def color_world(slug, im):
-    bg, fg = WORLD[slug], "#F3EBDD"
-    while contrast(bg, fg) < 4.8:  # darken until cream body text passes AA comfortably
-        bg = hexc([int(bg[i:i + 2], 16) * 0.94 for i in (1, 3, 5)])
-    return {"bg": bg, "fg": fg, "tile": hexc(im.getpixel((8, 8))), "contrast": round(contrast(bg, fg), 2)}
+    """Per-design page tint inside the system: bone pulled toward agave by how much cool/green the print holds
+    (4-20%). No new hues; ink text throughout."""
+    small = im.resize((80, 80)).convert("RGB")
+    cool = sum(1 for r, g, b in small.getdata() if g >= r - 6 and abs(g - b) < 40 and max(r, g, b) - min(r, g, b) > 18) / 6400
+    t = round(min(0.2, max(0.04, 0.04 + cool * 0.6)), 3)
+    return {"bg": mix(BONE, AGAVE, t), "fg": INK, "tile": hexc(im.getpixel((8, 8))), "t": t}
 
 
 def ed_name(name):
@@ -74,11 +60,14 @@ def head(path, title, desc, image, extra=""):
 
 
 def nav(solid=True):
-    return f"""<header class="site{' solid' if solid else ''}"><a class="brand" href="/" aria-label="Agave Apparel Co., home">Agave<em>Apparel Co.</em></a>
-<nav aria-label="Main"><a class="u" href="/shop/">Shop</a><a class="u" href="/about/">About</a><a class="u" href="/contact/">Contact</a><a class="u" href="/cart/">Cart <span class="count" data-cart-count>(0)</span></a></nav></header>"""
+    logo = "/logo.svg" if solid else "/logo-light.svg"
+    return f"""<header class="site{' solid' if solid else ''}">
+<nav class="nav-l" aria-label="Shop"><a class="u" href="/shop/">Shop</a><a class="u" href="/about/">About</a></nav>
+<a class="mast" href="/"><img src="{logo}" width="150" height="104" alt="Agave Apparel Co., home"></a>
+<nav class="nav-r" aria-label="Help and cart"><a class="u" href="/contact/">Contact</a><a class="u" href="/cart/">Cart <span class="count" data-cart-count>(0)</span></a></nav></header>"""
 
 
-FOOT = """<footer><div class="wrap fgrid"><div><div class="brand">Agave<em>Apparel Co.</em></div><p style="max-width:24rem">Small-batch graphic tees designed in the Sonoran Desert. One-of-a-kind pieces for people who don't dress like everyone else.</p></div>
+FOOT = """<footer><div class="wrap fgrid"><div><a class="mast" href="/"><img src="/logo-light.svg" width="170" height="118" loading="lazy" alt="Agave Apparel Co."></a><p style="max-width:24rem">Small-batch graphic tees designed in the Sonoran Desert. One-of-a-kind pieces for people who don't dress like everyone else.</p></div>
 <div><h4>Shop</h4><ul><li><a class="u" href="/shop/">All designs</a></li><li><a class="u" href="/about/">Our story</a></li><li><a class="u" href="/contact/">Contact</a></li></ul></div>
 <div><h4>Orders</h4><ul><li><a class="u" href="mailto:orders@agaveapparel.com">orders@agaveapparel.com</a></li><li>Phoenix, Arizona</li></ul></div></div>
 <div class="wrap fbottom"><div>© 2026 Agave Apparel Co. Designed in AZ, shipped everywhere.</div><div>Designed by Courtney Messamore</div></div></footer>
@@ -104,6 +93,27 @@ def page(path, title, desc, body, image="/img/og.jpg", extra="", solid=True):
     return head(path, title, desc, image, extra) + (nav(solid) if solid else "") + f"<main>{body}</main>" + FOOT + "</body></html>"
 
 
+VIDEO = ROOT.parent / "hero-video"
+VIDEO_FILES = ["hero.mp4", "hero.webm", "hero-mobile.mp4", "hero-poster.jpg"]
+
+
+def hero_video():
+    """Hook: if ../hero-video/ has the footage, copy it and emit <video>; otherwise a palette-only fallback.
+    The <video> has no autoplay attribute: home.js starts it unless prefers-reduced-motion or Save-Data,
+    so reduced-motion visitors only ever see the poster."""
+    have = [f for f in VIDEO_FILES if (VIDEO / f).exists() and (VIDEO / f).stat().st_size > 0]
+    if "hero-poster.jpg" not in have or not ({"hero.mp4", "hero.webm"} & set(have)):
+        return '<div class="fallback"><img src="/logo-leaf.svg" alt="" width="1500" height="1040"></div><!-- hero video hook: add files to hero-video/ and rebuild -->'
+    (OUT / "video").mkdir(exist_ok=True)
+    for f in have: shutil.copy(VIDEO / f, OUT / "video" / f)
+    src = []
+    if "hero-mobile.mp4" in have: src.append('<source src="/video/hero-mobile.mp4" type="video/mp4" media="(max-width: 760px)">')
+    if "hero.webm" in have: src.append('<source src="/video/hero.webm" type="video/webm">')
+    if "hero.mp4" in have: src.append('<source src="/video/hero.mp4" type="video/mp4">')
+    return ('<video data-hero-video muted loop playsinline preload="none" poster="/video/hero-poster.jpg" width="1920" height="1080">'
+            + "".join(src) + '</video>')
+
+
 def build():
     if OUT.exists(): shutil.rmtree(OUT)
     (OUT / "img/designs").mkdir(parents=True)
@@ -123,22 +133,17 @@ def build():
     bg.save(OUT / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
     og = Image.new("RGB", (1200, 630), (243, 235, 221)); lo = logo.copy(); lo.thumbnail((700, 520))
     og.paste(lo, ((1200 - lo.width) // 2, (630 - lo.height) // 2), lo); og.save(OUT / "img/og.jpg", quality=88)
-    for f in ["site.css", "cart.js", "home.js"]: shutil.copy(SRC / f, OUT / f)
+    for f in ["site.css", "cart.js", "home.js", "logo.svg", "logo-light.svg", "logo-leaf.svg"]: shutil.copy(SRC / f, OUT / f)
     shutil.copytree(SRC / "vendor", OUT / "vendor"); shutil.copytree(SRC / "fonts", OUT / "fonts")
     cat = {p["slug"]: {"name": p["name"], "price": p["price"]} for p in P}
     (ROOT / "functions/_lib/catalog.json").write_text(json.dumps(cat, indent=1))
     write("products.json", json.dumps(cat))
 
-    far, near = (SRC / "hero-far.svg").read_text(), (SRC / "hero-near.svg").read_text()
-    a11y = ' aria-hidden="true" focusable="false"'
-    far, near = far.replace("<svg ", f"<svg{a11y} ", 1), near.replace("<svg ", f"<svg{a11y} ", 1)
+    hero_media = hero_video()
     feat = next(p for p in P if p["slug"] == "golden-hour")
     home = f"""<section class="hero" aria-labelledby="h">{nav(False)}
-<div class="plate p-far" aria-hidden="true"><div class="sun"></div>{far}</div>
-<div class="plate p-type"><h1 id="h" class="sr-only">Dressed different, on purpose.</h1><p class="word w1" aria-hidden="true">Dressed</p></div>
-<div class="plate p-near" aria-hidden="true">{near}</div>
-<p class="word w2" aria-hidden="true">Different</p>
-<div class="grain" aria-hidden="true"></div>
+<div class="hero-media" aria-hidden="true">{hero_media}</div><div class="scrim" aria-hidden="true"></div>
+<h1 id="h" class="sr-only">Dressed different, on purpose.</h1><p class="word w1" aria-hidden="true">Dressed</p><p class="word w2" aria-hidden="true">Different</p>
 <div class="hero-foot"><div><p>Small-batch graphic tees designed in the Sonoran Desert. One-of-a-kind pieces for people who’d rather wear a conversation than a logo.</p></div>
 <div class="cta-row"><a class="btn btn-fill" href="/shop/">Shop all {N} designs</a><span class="rule" aria-hidden="true"></span><span class="num" aria-hidden="true">{N}</span></div></div>
 </section>
@@ -158,7 +163,7 @@ def build():
 <div class="more"><a class="btn btn-ink" href="/shop/">See all {N} designs</a></div></div></section>
 
 <section class="dusk"><div class="wrap sec story">
-<h2 class="ed"><em>Built by a desert kid</em> <span class="caps">who never wanted</span> <em class="sage">to blend in.</em></h2>
+<h2 class="ed"><em>Built by a desert kid</em> <span class="caps">who never wanted</span> <em class="leaf">to blend in.</em></h2>
 <div><p>Courtney has always dressed like herself — not anyone else. Agave Apparel is her way of sharing that: wearable art pulled from Arizona sunsets, saguaro shadows, and the kind of days that make you glad you live where you do.</p>
 <p><a class="u" href="/about/">Read Courtney’s story</a></p></div></div></section>
 
@@ -172,7 +177,7 @@ def build():
     # steps markup: ol inside .steps grid
     home = home.replace('<div class="steps"><ol>', '<ol class="steps">').replace('</li></ol></div></section>', '</li></ol></section>')
     write("index.html", page("/", "Agave Apparel Co. — Small-batch desert graphic tees", "Small-batch graphic tees designed in the Sonoran Desert. One-of-a-kind pieces for people who’d rather wear a conversation than a logo.", home,
-          extra='<script src="/vendor/gsap.min.js" defer></script><script src="/vendor/ScrollTrigger.min.js" defer></script><script src="/home.js" defer></script>', solid=False))
+          extra='<script src="/home.js" defer></script>', solid=False))
 
     shop = f"""<section class="sec coll"><div class="wrap"><div class="coll-head"><h1 class="ed"><em>All</em> <span class="caps">{N} designs.</span></h1><span class="num" aria-hidden="true">{N}</span></div>
 <div class="grid">{''.join(card(p, i + 1) for i, p in enumerate(P))}</div></div></section>"""
