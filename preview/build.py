@@ -71,7 +71,7 @@ FOOT = """<footer><div class="wrap fgrid"><div><a class="mast" href="/"><img src
 <div><h4>Shop</h4><ul><li><a class="u" href="/shop/">All designs</a></li><li><a class="u" href="/about/">Our story</a></li><li><a class="u" href="/contact/">Contact</a></li></ul></div>
 <div><h4>Orders</h4><ul><li><a class="u" href="mailto:orders@agaveapparel.com">orders@agaveapparel.com</a></li><li>Phoenix, Arizona</li></ul></div></div>
 <div class="wrap fbottom"><div>© 2026 Agave Apparel Co. Designed in AZ, shipped everywhere.</div><div>Designed by Courtney Messamore</div></div></footer>
-<script src="/cart.js" defer></script>"""
+<script src="/cart.js" defer></script><script src="/lightbox.js" defer></script>"""
 
 
 def pic(slug, sizes, eager=False, cls=""):
@@ -81,8 +81,9 @@ def pic(slug, sizes, eager=False, cls=""):
 
 
 def card(p, i):
-    return f"""<a class="card u-host" href="/products/{p['slug']}/"><div class="tile">{pic(p['slug'], "(min-width:900px) 31vw, 46vw")}</div>
-<div class="meta"><span class="idx">{i:02d}</span><h3><span class="u">{E(p['name'])}</span></h3><span class="p">${p['price']}</span><p class="tag">{E(p['tagline'])}</p></div></a>"""
+    # The image is a button (opens the viewer); the caption is the link to the product page.
+    return f"""<article class="card"><button class="tile" type="button" data-lb="{p['slug']}" aria-label="View {E(p['name'])} larger">{pic(p['slug'], "(min-width:900px) 31vw, 46vw")}</button>
+<a class="meta u-host" href="/products/{p['slug']}/"><span class="idx">{i:02d}</span><h3><span class="u">{E(p['name'])}</span></h3><span class="p">${p['price']}</span><p class="tag">{E(p['tagline'])}</p></a></article>"""
 
 
 def write(rel, s):
@@ -133,11 +134,12 @@ def build():
     bg.save(OUT / "favicon.ico", sizes=[(16, 16), (32, 32), (48, 48)])
     og = Image.new("RGB", (1200, 630), (243, 235, 221)); lo = logo.copy(); lo.thumbnail((700, 520))
     og.paste(lo, ((1200 - lo.width) // 2, (630 - lo.height) // 2), lo); og.save(OUT / "img/og.jpg", quality=88)
-    for f in ["site.css", "cart.js", "home.js", "logo.svg", "logo-light.svg", "logo-leaf.svg"]: shutil.copy(SRC / f, OUT / f)
+    for f in ["site.css", "cart.js", "home.js", "lightbox.js", "logo.svg", "logo-light.svg", "logo-leaf.svg"]: shutil.copy(SRC / f, OUT / f)
     shutil.copytree(SRC / "vendor", OUT / "vendor"); shutil.copytree(SRC / "fonts", OUT / "fonts")
     cat = {p["slug"]: {"name": p["name"], "price": p["price"]} for p in P}
     (ROOT / "functions/_lib/catalog.json").write_text(json.dumps(cat, indent=1))
     write("products.json", json.dumps(cat))
+    write("designs.json", json.dumps([{"slug": p["slug"], "name": p["name"], "price": p["price"], "tagline": p["tagline"], "alt": ALT[p["slug"]]} for p in P]))
 
     hero_media = hero_video()
     feat = next(p for p in P if p["slug"] == "golden-hour")
@@ -208,7 +210,7 @@ def build():
         radios = "".join(f'<label><input type="radio" name="size" value="{s}" required><span>{s}</span></label>' for s in SIZES)
         body = f"""<div class="world" style="--w-bg:{w['bg']};--w-fg:{w['fg']};--w-tile:{w['tile']}">{nav()}
 <div class="wrap"><a class="back u" href="/shop/">Back to all {N} designs</a></div>
-<div class="wrap pd"><div class="shot">{pic(p['slug'], "(min-width:960px) 56vw, 92vw", eager=True)}</div>
+<div class="wrap pd"><button class="shot" type="button" data-lb="{p['slug']}" data-magnify aria-label="View {E(p['name'])} larger">{pic(p['slug'], "(min-width:960px) 56vw, 92vw", eager=True)}</button>
 <div class="info"><span class="num" aria-hidden="true">{i:02d}/{N}</span><p class="sr-only">Design {i} of {N}</p>
 <h1 class="ed">{ed_name(p['name'])}</h1><p class="tagline">{E(p['tagline'])}</p>
 <p class="price" style="margin-top:1.6rem">${p['price']}</p><p class="desc">{E(p['meta_description'])}</p>

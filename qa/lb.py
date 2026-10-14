@@ -1,0 +1,40 @@
+import sys
+from playwright.sync_api import sync_playwright
+U=sys.argv[1]; D=sys.argv[2]; errs=[]
+with sync_playwright() as pw:
+    b=pw.chromium.launch()
+    pg=b.new_page(viewport={"width":1280,"height":860})
+    pg.on("console",lambda m:m.type=="error" and errs.append(m.text)); pg.on("pageerror",lambda e:errs.append(str(e)))
+    pg.goto(U+"/shop/",wait_until="networkidle")
+    t=pg.locator('[data-lb="out-west"]'); t.scroll_into_view_if_needed(); pg.wait_for_timeout(300)
+    t.hover(); pg.wait_for_timeout(1600); pg.screenshot(path=f"{D}/hover-zoom-1280.png")
+    print("hover transform", pg.evaluate("getComputedStyle(document.querySelector('[data-lb=\"out-west\"] img')).transform"))
+    t.click(); pg.wait_for_timeout(250); pg.screenshot(path=f"{D}/lightbox-mid-1280.png"); pg.wait_for_timeout(900)
+    pg.screenshot(path=f"{D}/lightbox-1280.png")
+    print("open", pg.evaluate("document.querySelector('dialog.lb').open"), "focus", pg.evaluate("document.activeElement.getAttribute('aria-label')"), pg.inner_text(".lb-count"))
+    pg.keyboard.press("ArrowRight"); pg.wait_for_timeout(700); print("after →", pg.inner_text(".lb-count"), pg.inner_text(".lb-info h2"))
+    pg.keyboard.press("ArrowLeft"); pg.wait_for_timeout(700); print("after ←", pg.inner_text(".lb-info h2"))
+    for _ in range(8): pg.keyboard.press("Tab")
+    print("focus still inside", pg.evaluate("!!document.activeElement.closest('dialog.lb')"))
+    pg.keyboard.press("Escape"); pg.wait_for_timeout(700); print("esc closed", not pg.evaluate("document.querySelector('dialog.lb').open"), "focus back", pg.evaluate("document.activeElement.dataset.lb"))
+    t.click(); pg.wait_for_timeout(1000); pg.mouse.click(30,430); pg.wait_for_timeout(700); print("backdrop closed", not pg.evaluate("document.querySelector('dialog.lb').open"))
+    t.click(); pg.wait_for_timeout(1000); pg.click(".lb-info a"); pg.wait_for_load_state(); print("link →", pg.url)
+    # product page magnify + open + cart still works
+    pg.goto(U+"/products/golden-hour/",wait_until="networkidle"); sh=pg.locator(".shot"); bb=sh.bounding_box()
+    pg.mouse.move(bb["x"]+bb["width"]*.7,bb["y"]+bb["height"]*.3); pg.wait_for_timeout(800); pg.screenshot(path=f"{D}/magnify-1280.png")
+    pg.check("input[value=M]"); pg.click("button[type=submit]"); pg.wait_for_selector(".msg a"); print("cart count", pg.inner_text("[data-cart-count]"))
+    pg.close()
+    # phone: touch, tap opens, swipe
+    ctx=b.new_context(viewport={"width":390,"height":844},device_scale_factor=2,has_touch=True,is_mobile=True); m=ctx.new_page()
+    m.on("console",lambda x:x.type=="error" and errs.append(x.text)); m.goto(U+"/",wait_until="networkidle")
+    tt=m.locator('[data-lb="stay-salty-salt-river"]'); tt.scroll_into_view_if_needed(); tt.tap(); m.wait_for_timeout(1100); m.screenshot(path=f"{D}/lightbox-390.png")
+    print("phone open", m.evaluate("document.querySelector('dialog.lb').open"), m.inner_text(".lb-count"))
+    fb=m.locator(".lb-frame").bounding_box(); y=fb["y"]+fb["height"]/2
+    m.evaluate(f"""()=>{{const f=document.querySelector('.lb-frame');const ev=(t,x)=>f.dispatchEvent(new PointerEvent(t,{{clientX:x,clientY:{y},bubbles:true,pointerType:'touch'}}));ev('pointerdown',300);ev('pointerup',120)}}""")
+    m.wait_for_timeout(700); print("after swipe", m.inner_text(".lb-count"))
+    ctx.close()
+    r=b.new_context(reduced_motion="reduce",viewport={"width":1280,"height":860}); rp=r.new_page(); rp.goto(U+"/shop/",wait_until="networkidle")
+    rp.locator('[data-lb="out-west"]').click(); rp.wait_for_timeout(60); print("reduced: ghost present?", rp.evaluate("!!document.querySelector('.lb-ghost')"))
+    rp.wait_for_timeout(400); rp.keyboard.press("Escape"); rp.wait_for_timeout(400); r.close()
+    b.close()
+print("errors", errs)
