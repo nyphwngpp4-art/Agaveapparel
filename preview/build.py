@@ -10,7 +10,12 @@ OUT = ROOT / "out"
 SRC = ROOT / "src"
 BASE = "https://agave-apparel-preview.pages.dev"
 SIZES = ["S", "M", "L", "XL", "2XL", "3XL"]
-P = json.load(open(SNAP / "products.json"))
+# v4 catalog: just the 10 real design files Courtney has (designs-v2/clean/NN.*), in her order.
+V4 = ["soul-to-sole", "bandana-triangle", "agave-over-hills", "bull-head", "red-rays-for-days",
+      "black-rays-for-days", "rays-for-days", "patterened-agave", "from-the-desert-to-the-glass", "agave-desert-life"]
+_ALL = {p["slug"]: p for p in json.load(open(SNAP / "products.json"))}
+P = [_ALL[s] for s in V4]
+CLEAN = ROOT.parent / "designs-v2" / "clean"
 N = len(P)
 E = html.escape
 
@@ -119,9 +124,10 @@ def build():
     if OUT.exists(): shutil.rmtree(OUT)
     (OUT / "img/designs").mkdir(parents=True)
     worlds = {}
-    for p in P:
-        im = Image.open(ROOT.parent / "designs" / f"{p['slug']}.png").convert("RGB")
-        crop = im.crop((126, 126, 1074, 1074))  # the site images carry a baked-in 120px bone margin (+6px antialiased edge)
+    for i, p in enumerate(P, 1):
+        im = Image.open(CLEAN / f"{i:02d}.png").convert("RGB")   # 1600 square, bone edge to edge
+        crop = im.resize((948, 948), Image.LANCZOS)
+        im = im.resize((1200, 1200), Image.LANCZOS)
         crop.save(OUT / f"img/designs/{p['slug']}-960.webp", quality=84)
         crop.resize((600, 600), Image.LANCZOS).save(OUT / f"img/designs/{p['slug']}-600.webp", quality=80)
         im.save(OUT / f"img/designs/{p['slug']}-1200.jpg", quality=84)  # OG / JSON-LD
@@ -142,7 +148,7 @@ def build():
     write("designs.json", json.dumps([{"slug": p["slug"], "name": p["name"], "price": p["price"], "tagline": p["tagline"], "alt": ALT[p["slug"]]} for p in P]))
 
     hero_media = hero_video()
-    feat = next(p for p in P if p["slug"] == "golden-hour")
+    feat = next(p for p in P if p["slug"] == "black-rays-for-days")
     home = f"""<section class="hero" aria-labelledby="h">{nav(False)}
 <div class="hero-media" aria-hidden="true">{hero_media}</div><div class="scrim" aria-hidden="true"></div>
 <h1 id="h" class="sr-only">Dressed different, on purpose.</h1><p class="word w1" aria-hidden="true">Dressed</p><p class="word w2" aria-hidden="true">Different</p>
@@ -151,12 +157,12 @@ def build():
 </section>
 
 <section class="wrap sec feature" aria-labelledby="fh">
-<div><div class="scratch" data-scratch>{pic('golden-hour', "(min-width:900px) 56vw, 92vw")}<canvas aria-hidden="true"></canvas></div>
+<div><div class="scratch" data-scratch>{pic(feat['slug'], "(min-width:900px) 56vw, 92vw")}<canvas aria-hidden="true"></canvas></div>
 <p class="hint">This is the featured print under a layer of desert dust. Drag across it to wipe it clean (side to side on a phone).</p></div>
-<div><h2 id="fh" class="ed"><em>Sonoran light,</em> <span class="caps">stretched</span> <em>and held.</em></h2>
+<div><h2 id="fh" class="ed"><em>Rays</em> <span class="caps">for days,</span> <em>after dark.</em></h2>
 <p class="lede">{E(feat['meta_description'])}</p>
 <p><span class="price">${feat['price']}</span></p>
-<div class="actions"><a class="btn btn-ink" href="/products/golden-hour/">Choose a size for Golden Hour</a></div></div>
+<div class="actions"><a class="btn btn-ink" href="/products/{feat['slug']}/">Choose a size for {E(feat['name'])}</a></div></div>
 </section>
 
 <section class="sec coll" aria-labelledby="ch"><div class="wrap">

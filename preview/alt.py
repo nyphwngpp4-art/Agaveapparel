@@ -22,4 +22,17 @@ ALT = {
  "rounded-window-agave": "Cream t-shirt with a rounded adobe-window graphic of a sunset gradient over a pale green agave",
  "soul-to-sole": "Cream t-shirt with a boot sole print, cactus and sun under the words Soul to Sole",
  "stay-salty-salt-river": "Cream t-shirt with an agave over a winding river through red canyons, lettered Stay Salty, Salt River",
+ # v4: alt text for Courtney's real files (overrides the scraped-image descriptions above)
 }
+ALT.update({
+ "soul-to-sole": "Cream t-shirt printed in brown with a boot sole holding a saguaro and agave, saguaros and a sun around it, lettered Soul to Sole",
+ "bandana-triangle": "Inverted triangle artwork of a sun, desert plants and a large green agave in orange and brown, lettered Agave Apparel",
+ "agave-over-hills": "Inverted triangle artwork of a rising sun over rolling hills with an orange agave, above Agave T-Shirt Co. lettering",
+ "bull-head": "Brown longhorn skull over a green agave, framed by arched Agave lettering and T-Shirt Co. below",
+ "red-rays-for-days": "Coral t-shirt with a yellow sun and rays above stacked cream letters Rays for Days",
+ "black-rays-for-days": "Black t-shirt with a striped orange sunset over red mesas and saguaros under the words Rays for Days",
+ "rays-for-days": "Cream t-shirt with an arched window of a sun over desert hills and a saguaro, lettered Rays for Days",
+ "patterened-agave": "Cream t-shirt with a diamond Southwestern geometric pattern framing a blue-green agave, and a small blank leather patch at the hem",
+ "from-the-desert-to-the-glass": "Back of a sand-colored t-shirt with a large green agave under arched From the Desert to the Glass text, lettered Agave Apparel T-Shirt Co.",
+ "agave-desert-life": "Cream t-shirt with a desert sunset scene of saguaros and an agave beneath Agave Apparel lettering, captioned Desert Life",
+})

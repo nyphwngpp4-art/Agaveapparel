@@ -1,0 +1,10 @@
+01 backdrop=(234, 231, 226) upscale=1.00 subject=0.67 seam_ring_maxdiff=0 box_edge_maxdiff=90
+02 backdrop=(234, 225, 207) upscale=1.65 subject=0.23 seam_ring_maxdiff=0 box_edge_maxdiff=504
+03 backdrop=(237, 230, 217) upscale=1.29 subject=0.16 seam_ring_maxdiff=0 box_edge_maxdiff=24
+04 backdrop=(235, 227, 212) upscale=1.29 subject=0.15 seam_ring_maxdiff=0 box_edge_maxdiff=26
+05 backdrop=(226, 216, 205) upscale=1.34 subject=0.61 seam_ring_maxdiff=0 box_edge_maxdiff=36
+06 backdrop=(243, 236, 224) upscale=1.32 subject=0.65 seam_ring_maxdiff=0 box_edge_maxdiff=18
+07 backdrop=(239, 234, 226) upscale=1.07 subject=0.63 seam_ring_maxdiff=0 box_edge_maxdiff=121
+08 backdrop=(234, 228, 219) upscale=1.41 subject=0.52 seam_ring_maxdiff=0 box_edge_maxdiff=8
+09 backdrop=(240, 232, 223) upscale=1.31 subject=0.66 seam_ring_maxdiff=0 box_edge_maxdiff=30
+10 backdrop=(255, 252, 248) upscale=1.04 subject=0.65 seam_ring_maxdiff=0 box_edge_maxdiff=79
