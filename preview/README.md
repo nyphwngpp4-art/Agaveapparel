@@ -19,3 +19,9 @@ The live site and its DNS are untouched.
 - `VARIANTS` in `functions/api/stripe-webhook.js`: real Printful Bella+Canvas 3001 variant ids per size (and colour per design).
 - Print files: replace the 1200px site images with Courtney's originals (transparent PNG 3600×4800+ or vector).
 - Review the "Designed in AZ" / small-batch / "Ships within 7–10 days" wording (kept verbatim for now).
+
+## v2 design ("Golden Hour Editorial", Oct 14)
+- Source: `src/` (site.css, home.js, cart.js, hand-drawn hero SVG plates, self-hosted OFL fonts Instrument Serif + Familjen Grotesk, GSAP 3.12.5 + ScrollTrigger in `src/vendor`).
+- Product page colours are picked by eye from each print (`WORLD` in build.py) and darkened automatically until cream text passes 4.8:1.
+- Site images carry a baked 120px margin; build.py crops it for display. OG/JSON-LD still use the full 1200px JPG.
+- QA: `qa/qa2.py` (cart flow, crawl, alt, console, CLS/LCP), `qa/final.py` (screenshots into qa/v2).

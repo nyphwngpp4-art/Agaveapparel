@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+  <!-- far mesas and ridges, atmospheric perspective: lighter = farther -->
+  <path fill="#9c5d63" opacity=".55" d="M0 640 L120 612 L210 618 L260 560 L420 556 L455 600 L610 606 L700 584 L820 590 L905 548 L1060 546 L1092 586 L1250 596 L1340 572 L1470 580 L1600 560 V900 H0Z"/>
+  <path fill="#6e4258" opacity=".8" d="M0 690 C140 660 230 672 330 650 S520 668 640 640 S860 662 980 636 S1190 660 1300 646 S1500 664 1600 640 V900 H0Z"/>
+  <path fill="#4a3150" d="M0 742 C180 716 300 730 430 712 S700 734 860 708 S1120 732 1260 716 S1480 736 1600 712 V900 H0Z"/>
+</svg>

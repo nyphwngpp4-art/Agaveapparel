@@ -1,0 +1,134 @@
+{
+ "golden-hour": {
+  "bg": "#3f5e52",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 6.05
+ },
+ "agave-desert-life": {
+  "bg": "#8e4a17",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 5.65
+ },
+ "stay-salty-salt-river": {
+  "bg": "#8a4a2c",
+  "fg": "#F3EBDD",
+  "tile": "#f2eae0",
+  "contrast": 5.73
+ },
+ "out-west": {
+  "bg": "#5a4b3e",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 7.07
+ },
+ "from-the-desert-to-the-glass": {
+  "bg": "#4c5a45",
+  "fg": "#F3EBDD",
+  "tile": "#f1e9e0",
+  "contrast": 6.21
+ },
+ "soul-to-sole": {
+  "bg": "#4a3826",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 9.41
+ },
+ "agave-to-tequila": {
+  "bg": "#7a5a3e",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 5.28
+ },
+ "desert-life": {
+  "bg": "#6b3f28",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 7.49
+ },
+ "agave-love": {
+  "bg": "#5e6650",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 5.08
+ },
+ "agave-over-hills": {
+  "bg": "#6b3f22",
+  "fg": "#F3EBDD",
+  "tile": "#e5ddd0",
+  "contrast": 7.52
+ },
+ "rays-for-days": {
+  "bg": "#8a5528",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 5.2
+ },
+ "orange-rays-for-days": {
+  "bg": "#a63e28",
+  "fg": "#F3EBDD",
+  "tile": "#ede1d6",
+  "contrast": 5.31
+ },
+ "red-rays-for-days": {
+  "bg": "#a8352c",
+  "fg": "#F3EBDD",
+  "tile": "#eae0d6",
+  "contrast": 5.52
+ },
+ "black-rays-for-days": {
+  "bg": "#201b1a",
+  "fg": "#F3EBDD",
+  "tile": "#f6efe2",
+  "contrast": 14.39
+ },
+ "agave-apparel-fade-orange-to-yello": {
+  "bg": "#5a5530",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 6.39
+ },
+ "bull-head": {
+  "bg": "#4e3620",
+  "fg": "#F3EBDD",
+  "tile": "#e3d9c6",
+  "contrast": 9.47
+ },
+ "cactus-in-sun-brown": {
+  "bg": "#91552b",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 5.01
+ },
+ "leave-a-mark": {
+  "bg": "#4f3020",
+  "fg": "#F3EBDD",
+  "tile": "#e2dac5",
+  "contrast": 9.99
+ },
+ "bandana-triangle": {
+  "bg": "#a24c1b",
+  "fg": "#F3EBDD",
+  "tile": "#e9dfcc",
+  "contrast": 4.95
+ },
+ "rounded-window-agave": {
+  "bg": "#5f6656",
+  "fg": "#F3EBDD",
+  "tile": "#f5efe6",
+  "contrast": 5.04
+ },
+ "patterened-agave": {
+  "bg": "#8e5038",
+  "fg": "#F3EBDD",
+  "tile": "#ebe5da",
+  "contrast": 5.29
+ },
+ "arizona-state-image": {
+  "bg": "#3e5a55",
+  "fg": "#F3EBDD",
+  "tile": "#f3e9da",
+  "contrast": 6.34
+ }
+}

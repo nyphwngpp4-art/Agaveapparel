@@ -34,9 +34,9 @@
       if (!cart.length) { root.innerHTML = '<p>Your cart is empty. <a href="/shop/">Browse the collection</a>.</p>'; return; }
       root.innerHTML = '<ul class="cartlist">' + cart.map((i, n) => `<li>
         <img src="/img/designs/${i.slug}-600.webp" width="72" height="72" alt="${P[i.slug].name} t-shirt">
-        <div><a href="/products/${i.slug}/">${P[i.slug].name}</a><div class="mono" style="font-size:.85rem;color:var(--dust)">Size ${i.size} · $${P[i.slug].price}</div>
+        <div><a class="u" href="/products/${i.slug}/">${P[i.slug].name}</a><small>Size ${i.size}, $${P[i.slug].price} each</small>
         <button class="linkbtn" data-rm="${n}" type="button">Remove</button></div>
-        <div class="qty"><button type="button" data-dec="${n}" aria-label="Decrease quantity">−</button><span class="mono">${i.qty}</span><button type="button" data-inc="${n}" aria-label="Increase quantity">+</button></div></li>`).join("") + "</ul>";
+        <div class="qty"><button type="button" data-dec="${n}" aria-label="Decrease quantity">−</button><span>${i.qty}</span><button type="button" data-inc="${n}" aria-label="Increase quantity">+</button></div></li>`).join("") + "</ul>";
     };
     root.addEventListener("click", (e) => {
       const c = read().filter((i) => P[i.slug]), d = e.target.dataset;

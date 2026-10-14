@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+  <defs>
+    <!-- one saguaro, hand-drawn as a single organic path (arms taper, tops are uneven) -->
+    <path id="sag" d="M-32 0 L-30 -200 C-30 -214 -60 -212 -84 -222 C-112 -234 -126 -262 -126 -300 L-124 -420 C-124 -452 -84 -454 -84 -422 L-86 -310 C-86 -284 -70 -270 -50 -266 C-38 -264 -31 -268 -31 -280 L-29 -540 C-29 -582 29 -582 29 -540 L30 -350 C30 -338 40 -334 52 -336 C70 -340 76 -356 76 -380 L78 -462 C78 -494 118 -494 118 -462 L116 -360 C116 -318 92 -296 60 -292 C44 -290 32 -290 32 -280 L34 0 Z"/>
+    <clipPath id="sagclip"><use href="#sag"/></clipPath>
+    <linearGradient id="body" x1="0" x2="1">
+      <stop offset="0" stop-color="#1c1420"/><stop offset=".55" stop-color="#271b2a"/><stop offset=".86" stop-color="#3a2530"/><stop offset="1" stop-color="#d98b4e"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d1f2e"/><stop offset="1" stop-color="#1a1219"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#ground)" d="M0 792 C160 772 260 788 380 774 S600 792 760 772 S1010 794 1160 778 S1440 796 1600 776 V900 H0Z"/>
+  <!-- distant saguaros on the near ridge -->
+  <g fill="#2d1f2e">
+    <use href="#sag" transform="translate(300 790) scale(.26)"/>
+    <use href="#sag" transform="translate(1200 782) scale(-.34 .34)"/>
+    <use href="#sag" transform="translate(1262 786) scale(.18)"/>
+  </g>
+  <!-- hero saguaro: rises through DRESSED, sits behind DIFFERENT; rim-lit from the sun on its right -->
+  <g transform="translate(700 935) scale(1.25)">
+    <g clip-path="url(#sagclip)">
+      <rect x="-140" y="-600" width="270" height="610" fill="url(#body)"/>
+      <!-- ribs: pleats catching the last light -->
+      <g fill="none" stroke="#e7a065" stroke-opacity=".16" stroke-width="2.2">
+        <path d="M-18 0 V-560 M-6 0 V-574 M6 0 V-574 M18 0 V-560"/>
+        <path d="M-112 -300 V-436 M-98 -300 V-440 M90 -360 V-480 M104 -360 V-478"/>
+      </g>
+    </g>
+  </g>
+  <!-- low agave at the left foot of the scene -->
+  <g fill="#1d1520" transform="translate(150 905) scale(.62)">
+    <path d="M0 0 C-10 -80 -6 -150 4 -210 C10 -150 14 -80 10 0Z"/><path d="M-6 0 C-60 -50 -110 -100 -150 -170 C-90 -120 -40 -80 6 -6Z"/>
+    <path d="M6 0 C60 -50 110 -96 160 -160 C100 -114 52 -76 -4 -6Z"/><path d="M-10 0 C-90 -20 -160 -40 -230 -90 C-150 -64 -80 -44 0 -8Z"/>
+    <path d="M10 0 C90 -24 160 -46 236 -100 C150 -66 80 -44 0 -8Z"/><path d="M-4 0 C-30 -70 -46 -130 -66 -220 C-30 -150 -10 -90 8 -4Z"/><path d="M4 0 C34 -70 52 -126 80 -214 C40 -146 18 -88 -8 -4Z"/>
+  </g>
+</svg>

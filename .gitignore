@@ -1,0 +1,4 @@
+qa/.venv/
+**/node_modules/
+.wrangler/
+.dev.vars
