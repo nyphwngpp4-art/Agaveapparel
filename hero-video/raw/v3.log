@@ -1,0 +1,5 @@
+I'll create one 8-second 16:9 cinematic clip at the highest resolution the video tool supports. First I'm checking the generation workflow so the still and the motion stay consistent.Video needs a still first, then an 8-second clip at 720p. I'll check the folder for earlier variants so this one matches the same desert look.The video tool needs a pinned opening frame. I’m generating a 16:9 golden-hour agave still, then animating an 8-second slow push-in at 720p.The still is ready. Next I’ll animate it as one 8-second 720p push-in and save the clip as `variant3.mp4`.The clip generated without a payment prompt. I’m copying it to `variant3.mp4` and checking duration and resolution.`variant3.mp4` is in the current directory. No payment or credits were required.
+
+- **Resolution:** 1280×720 (720p), the highest setting the video tool supports
+- **Length:** 8.04 seconds, 24 fps, 16:9
+- **Shot:** a still of blue agave rosettes at warm desert golden hour was generated first, then used as the opening frame of a slow push-in

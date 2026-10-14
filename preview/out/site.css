@@ -57,12 +57,18 @@ a{color:inherit;text-decoration:none}
 /* ---------- HERO: video (or poster) behind the type ---------- */
 .hero{position:relative;height:100svh;min-height:620px;max-height:1100px;overflow:hidden;color:var(--bone);isolation:isolate;background:var(--ink)}
 .hero-media{position:absolute;inset:0;z-index:0}
-.hero-media video,.hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-media video,.hero-media>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 /* fallback when there's no footage: the logo's agave, huge, in ink-on-ink */
 .hero-media .fallback{position:absolute;inset:0;background:radial-gradient(120% 80% at 70% 100%,color-mix(in srgb,var(--ink) 86%,var(--bone)) 0%,var(--ink) 60%)}
 .hero-media .fallback img{width:min(130vw,1500px);height:auto;inset:auto;left:50%;bottom:-6%;transform:translateX(-38%);opacity:.13;object-fit:contain}
 @media (max-width:760px){.hero-media .fallback img{width:190vw;bottom:8%;transform:translateX(-50%)}}
-.scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(37,9,9,.55) 0%,rgba(37,9,9,.1) 30%,rgba(37,9,9,.15) 60%,rgba(37,9,9,.75) 100%)}
+.hero-media video,.hero-media>img{filter:saturate(.8)}
+/* overlay toned to the palette: oxblood multiplies the gold sky down, a plain ink gradient protects the type + footer copy */
+.scrim{position:absolute;inset:0;z-index:1;background:
+  linear-gradient(180deg,rgba(37,9,9,.55) 0%,rgba(37,9,9,.30) 30%,rgba(37,9,9,.12) 58%,rgba(37,9,9,.7) 100%),
+  linear-gradient(0deg,color-mix(in srgb,var(--ink) 30%,transparent),color-mix(in srgb,var(--ink) 30%,transparent));mix-blend-mode:multiply}
+.scrim::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(37,9,9,.2),rgba(37,9,9,0) 45%,rgba(37,9,9,.5))}
+.word{text-shadow:0 2px 40px rgba(37,9,9,.35)}
 .word{opacity:0;transition:opacity .5s ease;position:absolute;z-index:2;margin:0;font-family:var(--serif);font-weight:400;text-transform:uppercase;line-height:.8;letter-spacing:-.015em;font-size:clamp(4.6rem,17.5vw,19rem);white-space:nowrap;color:var(--bone)}
 .w1{left:var(--gut);top:clamp(9rem,24vh,14rem)}
 .w2{right:var(--gut);top:calc(clamp(9rem,24vh,14rem) + .86em);font-style:italic}
