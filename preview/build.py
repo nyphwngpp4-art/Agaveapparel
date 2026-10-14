@@ -104,14 +104,14 @@ def page(path, title, desc, body, image="/img/og.jpg", extra_head=""):
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">{extra_head}</head><body>
 <div class="preview" role="note">Preview, not the live store</div>
-<header class="site"><div class="strip">Made in Arizona · Shipped Everywhere</div>
+<header class="site"><div class="strip">Designed in AZ · Shipped Everywhere</div>
 <div class="wrap bar"><a class="brand" href="/"><img src="/img/logo-sm.png" width="64" height="48" alt="Agave Apparel Co. logo: the word Agave in a thin serif with a pale green agave behind it"><span class="eyebrow">Apparel Co.</span></a>
 <nav aria-label="Main"><a href="/shop/">Shop</a><a href="/about/">About</a><a href="/contact/">Contact</a><a href="/cart/">Cart <span class="cartcount" data-cart-count>(0)</span></a></nav></div></header>
 <main>{body}</main>
 <footer><div class="wrap fgrid"><div><div class="display" style="font-size:1.9rem">Agave Apparel Co.</div><p style="color:rgba(245,239,230,.7);max-width:24rem;font-size:.9rem">Small-batch graphic tees designed in the Sonoran Desert. One-of-a-kind pieces for people who don't dress like everyone else.</p></div>
 <div><div class="eyebrow" style="color:rgba(245,239,230,.5)">Shop</div><ul><li><a href="/shop/">All designs</a></li><li><a href="/about/">Our story</a></li><li><a href="/contact/">Contact</a></li></ul></div>
 <div><div class="eyebrow" style="color:rgba(245,239,230,.5)">Orders</div><ul><li><a href="mailto:orders@agaveapparel.com">orders@agaveapparel.com</a></li><li style="color:rgba(245,239,230,.6)">Phoenix, Arizona</li></ul></div></div>
-<div class="wrap fbottom"><div>© 2026 Agave Apparel Co. — Made in Arizona</div><div>Designed by Courtney Messamore</div></div></footer>
+<div class="wrap fbottom"><div>© 2026 Agave Apparel Co. — Designed in AZ</div><div>Designed by Courtney Messamore</div></div></footer>
 <script src="/cart.js" defer></script></body></html>"""
 
 def card(p):

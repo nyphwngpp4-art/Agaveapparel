@@ -18,4 +18,4 @@ The live site and its DNS are untouched.
 ## TODO before going live
 - `VARIANTS` in `functions/api/stripe-webhook.js`: real Printful Bella+Canvas 3001 variant ids per size (and colour per design).
 - Print files: replace the 1200px site images with Courtney's originals (transparent PNG 3600×4800+ or vector).
-- Review the "Made in Arizona" / small-batch / "Ships within 7–10 days" wording (kept verbatim for now).
+- Review the "Designed in AZ" / small-batch / "Ships within 7–10 days" wording (kept verbatim for now).
