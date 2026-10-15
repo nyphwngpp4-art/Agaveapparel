@@ -1,0 +1,6 @@
+I'll start by reading the image and video generation guidance, then make a photographic desert still and turn the chosen frame into an 8-second 720p clip.The still comes first: a 16:9 photographic desert frame. I'll inspect it before animating, and only keep a frame that reads as a real photograph.The first still is too balanced: matching agaves flank the saguaro and the flare looks staged. I’ll generate a more irregular documentary frame.The second frame is more natural, but the agaves still look a little waxy and the flare streak is too clean. One more photographic pass.The third still is the most photographic: irregular scrub, a low hazy sun, and open sky. I’ll save that frame and animate it with a slow lateral dolly.The clip rendered. I’ll check length, resolution, and that the dolly actually moves before saving it as `vc.mp4`.The still and the clip are in the current directory.
+
+- `still_c.png` is the third photographic frame, 1280×720. The first two were set aside: one was too symmetrical, with a matched pair of agaves, and the next had waxy plants and a hard flare streak.
+- `vc.mp4` is one 8-second 16:9 clip at 720p (1280×720, 24 fps). It opens on that still and dollies slowly sideways, with a small parallax shift and light dust in the air. No payment or credits were required.
+
+The file also contains a stereo audio track that the generator added.

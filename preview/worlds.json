@@ -1,134 +1,62 @@
 {
- "golden-hour": {
-  "bg": "#d1d0ca",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.199
- },
- "agave-desert-life": {
-  "bg": "#dedcd5",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.072
- },
- "stay-salty-salt-river": {
-  "bg": "#dcdad3",
-  "fg": "#250909",
-  "tile": "#f2eae0",
-  "t": 0.094
- },
- "out-west": {
-  "bg": "#e2ded7",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.041
- },
- "from-the-desert-to-the-glass": {
-  "bg": "#dfdcd6",
-  "fg": "#250909",
-  "tile": "#f1e9e0",
-  "t": 0.063
- },
  "soul-to-sole": {
   "bg": "#e2ded7",
   "fg": "#250909",
-  "tile": "#f5efe6",
+  "tile": "#e6e2db",
   "t": 0.041
  },
- "agave-to-tequila": {
-  "bg": "#e1ded7",
+ "bandana-triangle": {
+  "bg": "#e2ded8",
   "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.047
- },
- "desert-life": {
-  "bg": "#dad8d2",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.11
- },
- "agave-love": {
-  "bg": "#dcdad3",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.091
+  "tile": "#e6e2db",
+  "t": 0.04
  },
  "agave-over-hills": {
-  "bg": "#e0ddd6",
+  "bg": "#e2ded8",
   "fg": "#250909",
-  "tile": "#e5ddd0",
-  "t": 0.06
+  "tile": "#e6e2db",
+  "t": 0.04
  },
- "rays-for-days": {
-  "bg": "#e1ded7",
+ "bull-head": {
+  "bg": "#e2ded8",
   "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.048
- },
- "orange-rays-for-days": {
-  "bg": "#e0ddd6",
-  "fg": "#250909",
-  "tile": "#ede1d6",
-  "t": 0.058
+  "tile": "#e6e2db",
+  "t": 0.04
  },
  "red-rays-for-days": {
-  "bg": "#e0ddd7",
+  "bg": "#e1ded7",
   "fg": "#250909",
-  "tile": "#eae0d6",
-  "t": 0.051
+  "tile": "#e6e2db",
+  "t": 0.043
  },
  "black-rays-for-days": {
   "bg": "#e1ded7",
   "fg": "#250909",
-  "tile": "#f6efe2",
-  "t": 0.05
+  "tile": "#e6e2db",
+  "t": 0.046
  },
- "agave-apparel-fade-orange-to-yello": {
-  "bg": "#dedcd5",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.072
- },
- "bull-head": {
+ "rays-for-days": {
   "bg": "#e1ded7",
   "fg": "#250909",
-  "tile": "#e3d9c6",
-  "t": 0.043
- },
- "cactus-in-sun-brown": {
-  "bg": "#e1ded7",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.05
- },
- "leave-a-mark": {
-  "bg": "#e1ded7",
-  "fg": "#250909",
-  "tile": "#e2dac5",
-  "t": 0.042
- },
- "bandana-triangle": {
-  "bg": "#e1ded7",
-  "fg": "#250909",
-  "tile": "#e9dfcc",
-  "t": 0.044
- },
- "rounded-window-agave": {
-  "bg": "#e0ddd6",
-  "fg": "#250909",
-  "tile": "#f5efe6",
-  "t": 0.059
+  "tile": "#e6e2db",
+  "t": 0.045
  },
  "patterened-agave": {
-  "bg": "#e0ddd7",
+  "bg": "#e1ded7",
   "fg": "#250909",
-  "tile": "#ebe5da",
-  "t": 0.051
+  "tile": "#e6e2db",
+  "t": 0.047
  },
- "arizona-state-image": {
-  "bg": "#dedcd5",
+ "from-the-desert-to-the-glass": {
+  "bg": "#e0ddd6",
   "fg": "#250909",
-  "tile": "#f3e9da",
-  "t": 0.073
+  "tile": "#e6e2db",
+  "t": 0.055
+ },
+ "agave-desert-life": {
+  "bg": "#e0ddd6",
+  "fg": "#250909",
+  "tile": "#e6e2db",
+  "t": 0.06
  }
 }
